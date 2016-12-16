@@ -21,6 +21,14 @@ class CookieBuilder implements CookieBuilderInterface
     /* @var bool $defaultHttpOnly */
     private $defaultHttpOnly = true;
 
+    /* @var int $maxAge */
+    private $maxAge;
+
+    public function __construct()
+    {
+        $this->maxAge = time() + 3600;
+    }
+
     /**
      * Sets the default Cookie domain property.
      *
@@ -68,6 +76,18 @@ class CookieBuilder implements CookieBuilderInterface
     }
 
     /**
+     * Sets the default Cookie MaxAge property.
+     *
+     * @param mixed $maxAge
+     * @return CookieBuilderInterface
+     */
+    public function setDefaultMaxAge(int $maxAge): CookieBuilderInterface
+    {
+        $this->maxAge = $maxAge;
+        return $this;
+    }
+
+    /**
      * Build a new Cookie.
      *
      * @param string $name
@@ -80,6 +100,7 @@ class CookieBuilder implements CookieBuilderInterface
         $cookie->setPath($this->defaultPath);
         $cookie->setSecure($this->defaultSecure);
         $cookie->setHttpOnly($this->defaultHttpOnly);
+        $cookie->setMaxAge($this->maxAge);
         if ($this->defaultDomain !== null) {
             $cookie->setDomain($this->defaultDomain);
         }
