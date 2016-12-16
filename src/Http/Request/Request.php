@@ -218,9 +218,9 @@ class Request implements RequestInterface
      * Gets the request IP address.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function ip(): mixed
+    public function ip(): ?string
     {
         if (!$this->getServer()->exists('REMOTE_ADDR')) {
             throw new MissingRequestMetaVariableException('REMOTE_ADDR');
@@ -232,9 +232,9 @@ class Request implements RequestInterface
      * Gets the http accept.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function httpAccept(): mixed
+    public function httpAccept(): ?string
     {
         if (!$this->getServer()->exists('HTTP_ACCEPT')) {
             throw new MissingRequestMetaVariableException('HTTP_ACCEPT');
@@ -246,9 +246,9 @@ class Request implements RequestInterface
      * Gets the http referer.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function referer(): mixed
+    public function referer(): ?string
     {
         if (!$this->getServer()->exists('HTTP_REFERER')) {
             throw new MissingRequestMetaVariableException('HTTP_REFERER');
@@ -260,9 +260,9 @@ class Request implements RequestInterface
      * Gets the request user agent.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function userAgent(): mixed
+    public function userAgent(): ?string
     {
         if (!$this->getServer()->exists('USER_AGENT')) {
             throw new MissingRequestMetaVariableException('USER_AGENT');
@@ -274,9 +274,9 @@ class Request implements RequestInterface
      * Gets the request URI
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function uri(): mixed
+    public function uri(): ?string
     {
         if (!$this->getServer()->exists('REQUEST_URI')) {
             throw new MissingRequestMetaVariableException('REQUEST_URI');
@@ -287,9 +287,9 @@ class Request implements RequestInterface
     /**
      * Get the request's pathname
      *
-     * @return mixed
+     * @return null|string
      */
-    public function pathname(): mixed
+    public function pathname(): ?string
     {
         $uri = $this->uri();
         if (is_null($uri)) {
@@ -311,9 +311,9 @@ class Request implements RequestInterface
      *
      * @param string $is The method to check the current request method against
      * @param boolean $allow_override Whether or not to allow HTTP method overriding via header or params
-     * @return mixed
+     * @return null|string
      */
-    public function method(?string $is = null, bool $allow_override = true): mixed
+    public function method(?string $is = null, bool $allow_override = true): ?string
     {
         $method = $this->getServer()->get('REQUEST_METHOD', 'GET');
         // Override
@@ -337,9 +337,9 @@ class Request implements RequestInterface
      *
      * @param string $key The name of the query param
      * @param mixed $value The value of the query param
-     * @return string
+     * @return null|string
      */
-    public function query(string $key, ?mixed $value = null): string
+    public function query(string $key, ?mixed $value = null): ?string
     {
         $query = array();
         parse_str(
