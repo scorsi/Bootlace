@@ -11,9 +11,9 @@ trait ResponseContentTrait
     /**
      * Clear the content.
      *
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function clearContent(): ResponseContentTrait
+    public function clearContent(): Response
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content = '';
@@ -34,9 +34,9 @@ trait ResponseContentTrait
      * Set the Response content.
      *
      * @param string $content
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function setContent(string $content = ""): ResponseContentTrait
+    public function setContent(string $content = ""): Response
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content = $content;
@@ -47,9 +47,9 @@ trait ResponseContentTrait
      * Prepends the content.
      *
      * @param string $content The string to prepend
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function prependContent(string $content): ResponseContentTrait
+    public function prependContent(string $content): Response
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content = $content . $this->content;
@@ -60,9 +60,9 @@ trait ResponseContentTrait
      * Appends the content.
      *
      * @param string $content The string to append
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function appendContent(string $content): ResponseContentTrait
+    public function appendContent(string $content): Response
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content .= $content;
@@ -72,9 +72,9 @@ trait ResponseContentTrait
     /**
      * Send our content.
      *
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function sendContent(): ResponseContentTrait
+    public function sendContent(): Response
     {
         echo $this->content;
         $this->lock();

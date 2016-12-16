@@ -7,9 +7,9 @@ interface ResponseContentInterface
     /**
      * Clear the content.
      *
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function clearContent(): ResponseContentTrait;
+    public function clearContent(): Response;
 
     /**
      * Get the Response content.
@@ -22,23 +22,23 @@ interface ResponseContentInterface
      * Set the Response content.
      *
      * @param string $content
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function setContent(string $content = ""): ResponseContentTrait;
+    public function setContent(string $content = ""): Response;
 
     /**
      * Prepends the content.
      *
      * @param string $content The string to prepend
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function prependContent(string $content): ResponseContentTrait;
+    public function prependContent(string $content): Response;
 
     /**
      * Appends the content.
      *
      * @param string $content The string to append
-     * @return ResponseContentTrait
+     * @return Response
      */
-    public function appendContent(string $content): ResponseContentTrait;
+    public function appendContent(string $content): Response;
 }
