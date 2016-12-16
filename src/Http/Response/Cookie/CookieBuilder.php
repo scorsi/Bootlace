@@ -16,10 +16,10 @@ class CookieBuilder implements CookieBuilderInterface
     private $defaultPath = '/';
 
     /* @var bool $defaultSecure */
-    private $defaultSecure = true;
+    private $defaultSecure = false;
 
     /* @var bool $defaultHttpOnly */
-    private $defaultHttpOnly = true;
+    private $defaultHttpOnly = false;
 
     /* @var int $maxAge */
     private $maxAge;
