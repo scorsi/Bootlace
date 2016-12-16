@@ -54,7 +54,7 @@ class HeaderDataCollection extends DataCollection implements HeaderNormalization
     /**
      * {@inheritdoc}
      */
-    public function get(string $key, ?mixed $default = null): ?mixed
+    public function get(string $key, $default = null)
     {
         $key = HeaderNormalization::normalizeKey($key, $this->normalization);
 
@@ -64,7 +64,7 @@ class HeaderDataCollection extends DataCollection implements HeaderNormalization
     /**
      * {@inheritdoc}
      */
-    public function set(string $key, ?mixed $default = null, bool $override = true): DataCollectionInterface
+    public function set(string $key, $default = null, bool $override = true): DataCollectionInterface
     {
         $key = HeaderNormalization::normalizeKey($key, $this->normalization);
 

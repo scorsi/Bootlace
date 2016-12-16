@@ -30,12 +30,12 @@ abstract class AbstractDataCollection implements IteratorAggregate, ArrayAccess,
     /**
      * {@inheritdoc}
      */
-    abstract public function get(string $key, ?mixed $default = null): ?mixed;
+    abstract public function get(string $key, $default = null);
 
     /**
      * {@inheritdoc}
      */
-    abstract public function set(string $key, ?mixed $value, bool $override = true): DataCollectionInterface;
+    abstract public function set(string $key, $value, bool $override = true): DataCollectionInterface;
 
     /**
      * {@inheritdoc}
@@ -87,7 +87,7 @@ abstract class AbstractDataCollection implements IteratorAggregate, ArrayAccess,
      * @param string $key
      * @return null|mixed
      */
-    public function __get(string $key): ?mixed
+    public function __get(string $key)
     {
         return $this->get($key);
     }
@@ -97,12 +97,11 @@ abstract class AbstractDataCollection implements IteratorAggregate, ArrayAccess,
      *
      * @param string $key
      * @param null|mixed $value
-     * @param bool $override
      * @return DataCollectionInterface
      */
-    public function __set(string $key, ?mixed $value, bool $override = true): DataCollectionInterface
+    public function __set(string $key, $value): DataCollectionInterface
     {
-        return $this->set($key, $value, $override);
+        return $this->set($key, $value);
     }
 
     /**

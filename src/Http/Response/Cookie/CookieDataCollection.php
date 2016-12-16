@@ -30,7 +30,7 @@ class CookieDataCollection extends DataCollection
      * @param bool $override
      * @return DataCollectionInterface
      */
-    public function set(string $key, ?mixed $value, bool $override = true): DataCollectionInterface
+    public function set(string $key, $value, bool $override = true): DataCollectionInterface
     {
         if (!$value instanceof Cookie) {
             $value = new Cookie($key, $value);

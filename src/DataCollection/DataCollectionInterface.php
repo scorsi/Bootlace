@@ -20,7 +20,7 @@ interface DataCollectionInterface
      * @param null|mixed $default
      * @return null|mixed
      */
-    public function get(string $key, ?mixed $default = null): ?mixed;
+    public function get(string $key, $default = null);
 
     /**
      * Sets the attribute value corresponding to the key given.
@@ -32,7 +32,7 @@ interface DataCollectionInterface
      * @param bool $override
      * @return DataCollectionInterface
      */
-    public function set(string $key, ?mixed $value, bool $override = true): DataCollectionInterface;
+    public function set(string $key, $value, bool $override = true): DataCollectionInterface;
 
     /**
      * Un sets the attribute corresponding to the key given.

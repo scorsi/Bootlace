@@ -15,7 +15,7 @@ class DataCollection extends AbstractDataCollection
     /**
      * {@inheritdoc}
      */
-    public function get(string $key, ?mixed $default = null): ?mixed
+    public function get(string $key, $default = null)
     {
         if ($this->isset($key)) {
             return $this->attributes[$key];
@@ -27,7 +27,7 @@ class DataCollection extends AbstractDataCollection
     /**
      * {@inheritdoc}
      */
-    public function set(string $key, ?mixed $value, bool $override = true): DataCollectionInterface
+    public function set(string $key, $value, bool $override = true): DataCollectionInterface
     {
         if ($override || $this->isset($key)) {
             $this->attributes[$key] = $value;
