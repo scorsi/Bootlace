@@ -26,7 +26,7 @@ class CookieBuilder implements CookieBuilderInterface
 
     public function __construct()
     {
-        $this->maxAge = time() + 3600;
+        $this->maxAge = time() + (60 * 60 * 24 * 30); // Expires in 30 days.
     }
 
     /**
