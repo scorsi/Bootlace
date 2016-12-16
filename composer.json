@@ -1,0 +1,32 @@
+{
+  "name": "scorsi/bootlace-framework",
+  "type": "library",
+  "description": "Bootlace Framework",
+  "support": {
+    "wiki": "https://github.com/scorsi/bootlace-framework/wiki",
+    "issues": "https://github.com/scorsi/bootlace-framework/issues",
+    "source": "https://github.com/scorsi/bootlace-framework"
+  },
+  "keywords": [
+    "Bootlace",
+    "Framework"
+  ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Sylvain Corsini <scorsi>",
+      "email": "sylvain.corsini@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "require-dev": {
+    "filp/whoops": "~2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bootlace\\": "src/"
+    }
+  }
+}
