@@ -54,6 +54,6 @@ class ServerDataCollection extends DataCollection
      */
     public function all(): array
     {
-        return $this->getHeaders();
+        return $this->attributes;
     }
 }
