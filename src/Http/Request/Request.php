@@ -13,7 +13,7 @@ use Bootlace\Http\Request\Exception\MissingRequestMetaVariableException;
  *
  * @package Bootlace\Http
  */
-class Request
+class Request implements RequestInterface
 {
     /* @var DataCollection $params_post : POST parameters */
     protected $params_post = null;
@@ -77,25 +77,23 @@ class Request
         $this->cookies_initial = $cookies;
         $this->files_initial = $files;
         $this->server_initial = $server;
-        $this->body = $body;
+        $this->params_body = $body;
     }
 
     /**
      * Create a new request object using the built-in "superglobals"
      *
      * @link http://php.net/manual/en/language.variables.superglobals.php
-     * @return static
+     * @return RequestInterface
      */
-    public function createFromGlobals()
+    public function createFromGlobals(): RequestInterface
     {
-        return new static(
-            $_GET,
-            $_POST,
-            $_COOKIE,
-            $_SERVER,
-            $_FILES,
-            null // Let our content getter take of the body
-        );
+        $this->get_initial = $_GET;
+        $this->post_initial = $_POST;
+        $this->cookies_initial = $_COOKIE;
+        $this->files_initial = $_FILES;
+        $this->server_initial = $_SERVER;
+        return $this;
     }
 
     /**

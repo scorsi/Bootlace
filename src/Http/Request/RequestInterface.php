@@ -2,6 +2,12 @@
 
 namespace Bootlace\Http\Request;
 
+use Bootlace\DataCollection\DataCollection;
+use Bootlace\Http\Response\Cookie\CookieDataCollection;
+use Bootlace\Http\Response\Header\HeaderDataCollection;
+use Bootlace\Http\Response\Header\ServerDataCollection;
+use Bootlace\Http\Request\Exception\MissingRequestMetaVariableException;
+
 /**
  * Interface RequestInterface
  *
@@ -10,161 +16,146 @@ namespace Bootlace\Http\Request;
 interface RequestInterface
 {
     /**
-     * Returns a parameter value from POST or GET parameters or a default value if none is set.
+     * Create a new request object using the built-in "superglobals"
      *
-     * @param string $key
-     * @param string|null $defaultValue (optional)
-     * @return string|null
+     * @link http://php.net/manual/en/language.variables.superglobals.php
+     * @return RequestInterface
      */
-    public function getParameter(string $key, ?string $defaultValue = null): ?string;
+    public function createFromGlobals(): RequestInterface;
 
     /**
-     * Returns GET and POST parameters.
+     * Lazy initialize of paramsGet DataCollection.
      *
-     * @return array
+     * @return DataCollection
      */
-    public function getParameters(): array;
+    public function getParamsGet(): DataCollection;
 
     /**
-     * Returns a parameter value from GET parameters or a default value if none is set.
+     * Lazy initialize of paramsPost DataCollection.
      *
-     * @param string $key
-     * @param string|null $defaultValue (optional)
-     * @return string|null
+     * @return DataCollection
      */
-    public function getGetParameter(string $key, ?string $defaultValue = null): ?string;
+    public function getParamsPost(): DataCollection;
 
     /**
-     * Returns all GET parameters.
+     * Lazy initialize of paramsNamed DataCollection.
      *
-     * @return array
+     * @return DataCollection
      */
-    public function getGetParameters(): array;
+    public function getParamsNamed(): DataCollection;
 
     /**
-     * Returns a parameter value from POST parameters or a default value if none is set.
+     * Lazy initialize of cookies DataCollection.
      *
-     * @param string $key
-     * @param string|null $defaultValue (optional)
-     * @return string|null
+     * @return CookieDataCollection
      */
-    public function getPostParameter(string $key, ?string $defaultValue = null): ?string;
+    public function getCookies(): CookieDataCollection;
 
     /**
-     * Returns all POST parameters.
+     * Lazy initialize of server ServerDataCollection.
      *
-     * @return array
+     * @return ServerDataCollection
      */
-    public function getPostParameters(): array;
+    public function getServer(): ServerDataCollection;
 
     /**
-     * Returns a file value or a default value if none is set.
+     * Lazy initialize of headers DataCollection.
      *
-     * @param string $key
-     * @param string|null $defaultValue (optional)
-     * @return string|null
+     * @return HeaderDataCollection
      */
-    public function getFile(string $key, ?string $defaultValue = null): ?string;
+    public function getHeaders(): HeaderDataCollection;
 
     /**
-     * Returns all files.
+     * Lazy initialize of files DataCollection.
      *
-     * @return array
+     * @return DataCollection
      */
-    public function getFiles(): array;
+    public function getFiles(): DataCollection;
 
     /**
-     * Returns a cookie value or a default value if none is set.
-     *
-     * @param string $key
-     * @param string|null $defaultValue (optional)
-     * @return string|null
-     */
-    public function getCookie(string $key, ?string $defaultValue = null): ?string;
-
-    /**
-     * Returns all cookies.
-     *
-     * @return array
-     */
-    public function getCookies(): array;
-
-    /**
-     * Returns raw values from the read-only stream that allows you to read raw data from the request body.
+     * Gets the request body.
      *
      * @return string
      */
-    public function getRawBody(): string;
+    public function getBody(): string;
 
     /**
-     * The URI which was given in order to access this page
+     * Checks if the request is secure.
      *
-     * @return string
      * @throws MissingRequestMetaVariableException
-     */
-    public function getUri(): string;
-
-    /**
-     * Return just the path
-     *
-     * @return string
-     */
-    public function getPath(): string;
-
-    /**
-     * Which request method was used to access the page;
-     * i.e. 'GET', 'HEAD', 'POST', 'PUT'.
-     *
-     * @return string
-     * @throws MissingRequestMetaVariableException
-     */
-    public function getMethod(): string;
-
-    /**
-     * Contents of the Accept: header from the current request, if there is one.
-     *
-     * @return string
-     * @throws MissingRequestMetaVariableException
-     */
-    public function getHttpAccept(): string;
-
-    /**
-     * The address of the page (if any) which referred the user agent to the
-     * current page.
-     *
-     * @return string
-     * @throws MissingRequestMetaVariableException
-     */
-    public function getReferer(): string;
-
-    /**
-     * Content of the User-Agent header from the request, if there is one.
-     *
-     * @return string
-     * @throws MissingRequestMetaVariableException
-     */
-    public function getUserAgent(): string;
-
-    /**
-     * The IP address from which the user is viewing the current page.
-     *
-     * @return string
-     * @throws MissingRequestMetaVariableException
-     */
-    public function getIpAddress(): string;
-
-    /**
-     * Checks to see whether the current request is using HTTPS.
-     *
-     * @return bool
+     * @return boolean
      */
     public function isSecure(): bool;
 
     /**
-     * The query string, if any, via which the page was accessed.
+     * Gets the request IP address.
      *
-     * @return string
      * @throws MissingRequestMetaVariableException
+     * @return mixed
      */
-    public function getQueryString(): string;
+    public function ip(): mixed;
+
+    /**
+     * Gets the http accept.
+     *
+     * @throws MissingRequestMetaVariableException
+     * @return mixed
+     */
+    public function httpAccept(): mixed;
+
+    /**
+     * Gets the http referer.
+     *
+     * @throws MissingRequestMetaVariableException
+     * @return mixed
+     */
+    public function referer(): mixed;
+
+    /**
+     * Gets the request user agent.
+     *
+     * @throws MissingRequestMetaVariableException
+     * @return mixed
+     */
+    public function userAgent(): mixed;
+
+    /**
+     * Gets the request URI
+     *
+     * @throws MissingRequestMetaVariableException
+     * @return mixed
+     */
+    public function uri(): mixed;
+
+    /**
+     * Get the request's pathname
+     *
+     * @return mixed
+     */
+    public function pathname(): mixed;
+
+    /**
+     * Gets the request method, or checks it against $is.
+     *
+     * <code>
+     * // POST request example
+     * $request->method() // returns 'POST'
+     * $request->method('post') // returns true
+     * $request->method('get') // returns false
+     * </code>
+     *
+     * @param string $is The method to check the current request method against
+     * @param boolean $allow_override Whether or not to allow HTTP method overriding via header or params
+     * @return mixed
+     */
+    public function method(?string $is = null, bool $allow_override = true): mixed;
+
+    /**
+     * Adds to or modifies the current query string.
+     *
+     * @param string $key The name of the query param
+     * @param mixed $value The value of the query param
+     * @return string
+     */
+    public function query(string $key, ?mixed $value = null): string;
 }
