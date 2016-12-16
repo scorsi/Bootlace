@@ -91,48 +91,48 @@ interface RequestInterface
      * Gets the request IP address.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function ip(): mixed;
+    public function ip(): ?string;
 
     /**
      * Gets the http accept.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function httpAccept(): mixed;
+    public function httpAccept(): ?string;
 
     /**
      * Gets the http referer.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function referer(): mixed;
+    public function referer(): ?string;
 
     /**
      * Gets the request user agent.
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function userAgent(): mixed;
+    public function userAgent(): ?string;
 
     /**
      * Gets the request URI
      *
      * @throws MissingRequestMetaVariableException
-     * @return mixed
+     * @return null|string
      */
-    public function uri(): mixed;
+    public function uri(): ?string;
 
     /**
      * Get the request's pathname
      *
-     * @return mixed
+     * @return null|string
      */
-    public function pathname(): mixed;
+    public function pathname(): ?string;
 
     /**
      * Gets the request method, or checks it against $is.
@@ -146,16 +146,16 @@ interface RequestInterface
      *
      * @param string $is The method to check the current request method against
      * @param boolean $allow_override Whether or not to allow HTTP method overriding via header or params
-     * @return mixed
+     * @return null|string
      */
-    public function method(?string $is = null, bool $allow_override = true): mixed;
+    public function method(?string $is = null, bool $allow_override = true): ?string;
 
     /**
      * Adds to or modifies the current query string.
      *
      * @param string $key The name of the query param
      * @param mixed $value The value of the query param
-     * @return string
+     * @return null|string
      */
-    public function query(string $key, ?mixed $value = null): string;
+    public function query(string $key, ?mixed $value = null): ?string;
 }
