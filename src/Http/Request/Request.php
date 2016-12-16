@@ -143,7 +143,7 @@ class Request implements RequestInterface
     public function getCookies(): CookieDataCollection
     {
         if (is_null($this->params_cookies)) {
-            $this->params_cookies = new DataCollection($this->cookies_initial);
+            $this->params_cookies = new CookieDataCollection($this->cookies_initial);
         }
         return $this->params_cookies;
     }
