@@ -6,7 +6,7 @@ use Bootlace\Http\Response\Exception\LockedResponseException;
 
 trait ResponseLockTrait
 {
-    private $locked;
+    private $locked = false;
 
     /**
      * Check if the response is locked.
