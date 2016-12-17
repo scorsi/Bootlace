@@ -1,5 +1,5 @@
 # bootlace-framework
-PHP Web Framework
+PHP 7.1 Web Framework
 
 This framework uses the Lazy Initialization Design Patern.
 
