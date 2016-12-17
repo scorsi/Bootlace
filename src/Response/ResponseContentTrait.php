@@ -1,6 +1,6 @@
 <?php
 
-namespace Bootlace\Http\Response;
+namespace Bootlace\Response;
 
 trait ResponseContentTrait
 {
@@ -11,9 +11,9 @@ trait ResponseContentTrait
     /**
      * Clear the content.
      *
-     * @return Response
+     * @return ResponseManager|ResponseContentTrait
      */
-    public function clearContent(): Response
+    public function clearContent(): ResponseManager
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content = '';
@@ -34,9 +34,9 @@ trait ResponseContentTrait
      * Set the Response content.
      *
      * @param string $content
-     * @return Response
+     * @return ResponseManager|ResponseContentTrait
      */
-    public function setContent(string $content = ""): Response
+    public function setContent(string $content = ""): ResponseManager
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content = $content;
@@ -47,9 +47,9 @@ trait ResponseContentTrait
      * Prepends the content.
      *
      * @param string $content The string to prepend
-     * @return Response
+     * @return ResponseManager|ResponseContentTrait
      */
-    public function prependContent(string $content): Response
+    public function prependContent(string $content): ResponseManager
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content = $content . $this->content;
@@ -60,9 +60,9 @@ trait ResponseContentTrait
      * Appends the content.
      *
      * @param string $content The string to append
-     * @return Response
+     * @return ResponseManager|ResponseContentTrait
      */
-    public function appendContent(string $content): Response
+    public function appendContent(string $content): ResponseManager
     {
         $this->requireUnlocked(); // Require that the response be unlocked before changing it.
         $this->content .= $content;
@@ -72,9 +72,9 @@ trait ResponseContentTrait
     /**
      * Send our content.
      *
-     * @return Response
+     * @return ResponseManager|ResponseContentTrait
      */
-    public function sendContent(): Response
+    public function sendContent(): ResponseManager
     {
         echo $this->content;
         $this->lock();

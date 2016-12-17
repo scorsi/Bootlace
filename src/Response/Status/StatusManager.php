@@ -1,6 +1,6 @@
 <?php
 
-namespace Bootlace\Http\Response\Status;
+namespace Bootlace\Response\Status;
 
 /**
  * Class StatusManager

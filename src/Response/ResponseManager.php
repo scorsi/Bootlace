@@ -1,14 +1,14 @@
 <?php
 
-namespace Bootlace\Http\Response;
+namespace Bootlace\Response;
 
-use Bootlace\Http\Response\Cookie\CookieDataCollection;
-use Bootlace\Http\Response\Cookie\CookieManager;
-use Bootlace\Http\Response\Header\HeaderDataCollection;
-use Bootlace\Http\Response\Header\HeaderManager;
-use Bootlace\Http\Response\Status\StatusManager;
-use Bootlace\Http\Response\Exception\ResponseAlreadySentException;
-use Bootlace\Http\Response\Header\Exception\HeadersAlreadySentException;
+use Bootlace\Response\Cookie\CookieDataCollection;
+use Bootlace\Response\Cookie\CookieManager;
+use Bootlace\Response\Header\HeaderDataCollection;
+use Bootlace\Response\Header\HeaderManager;
+use Bootlace\Response\Status\StatusManager;
+use Bootlace\Response\Exception\ResponseAlreadySentException;
+use Bootlace\Response\Header\Exception\HeadersAlreadySentException;
 
 /**
  * Class ResponseManager

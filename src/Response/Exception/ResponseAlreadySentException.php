@@ -1,15 +1,15 @@
 <?php
 
-namespace Bootlace\Http\Response\Header\Exception;
+namespace Bootlace\Response\Exception;
 
 use RuntimeException;
 use Bootlace\Exception\ExceptionInterface;
 
 /**
- * HeadersAlreadySentException
+ * ResponseAlreadySentException
  *
  * Exception used for when a response is attempted to be sent after its already been sent
  */
-class HeadersAlreadySentException extends RuntimeException implements ExceptionInterface
+class ResponseAlreadySentException extends RuntimeException implements ExceptionInterface
 {
 }

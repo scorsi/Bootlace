@@ -1,8 +1,8 @@
 <?php
 
-namespace Bootlace\Http\Response;
+namespace Bootlace\Response;
 
-use Bootlace\Http\Response\Exception\LockedResponseException;
+use Bootlace\Response\Exception\LockedResponseException;
 
 trait ResponseLockTrait
 {

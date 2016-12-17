@@ -1,11 +1,11 @@
 <?php
 
-namespace Bootlace\Http\Response\Header;
+namespace Bootlace\Response\Header;
 
 use Bootlace\DataCollection\DataCollection;
 use Bootlace\DataCollection\DataCollectionInterface;
-use Bootlace\Http\Response\Header\HeaderNormalization\HeaderNormalization;
-use Bootlace\Http\Response\Header\HeaderNormalization\HeaderNormalizationInterface;
+use Bootlace\Response\Header\HeaderNormalization\HeaderNormalization;
+use Bootlace\Response\Header\HeaderNormalization\HeaderNormalizationInterface;
 
 class HeaderDataCollection extends DataCollection implements HeaderNormalizationInterface
 {

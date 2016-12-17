@@ -1,6 +1,6 @@
 <?php
 
-namespace Bootlace\Http\Response\Cookie;
+namespace Bootlace\Response\Cookie;
 
 /**
  * Interface CookieInterface

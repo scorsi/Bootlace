@@ -1,6 +1,6 @@
 <?php
 
-namespace Bootlace\Http\Response\Header\HeaderNormalization;
+namespace Bootlace\Response\Header\HeaderNormalization;
 
 class HeaderNormalization implements HeaderNormalizationInterface
 {

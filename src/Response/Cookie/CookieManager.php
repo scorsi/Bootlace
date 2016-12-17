@@ -1,13 +1,13 @@
 <?php
 
-namespace Bootlace\Http\Response\Cookie;
+namespace Bootlace\Response\Cookie;
 
 /**
  * Class CookieManager
  *
  * @package Bootlace\Http
  */
-class CookieManager
+class CookieManager implements CookieManagerInterface
 {
     /* @var string[] $_deletedCookies */
     protected $_deletedCookies = array();

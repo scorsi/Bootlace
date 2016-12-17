@@ -1,6 +1,6 @@
 <?php
 
-namespace Bootlace\Http\Response\Header;
+namespace Bootlace\Response\Header;
 
 /**
  * Interface HeaderManagerInterface

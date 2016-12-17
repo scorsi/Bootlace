@@ -1,8 +1,8 @@
 <?php
 
-namespace Bootlace\Http\Response;
+namespace Bootlace\Response;
 
-use Bootlace\Http\Response\Exception\ResponseAlreadySentException;
+use Bootlace\Response\Exception\ResponseAlreadySentException;
 
 /**
  * Interface ResponseManagerInterface

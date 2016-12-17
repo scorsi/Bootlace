@@ -1,15 +1,15 @@
 <?php
 
-namespace Bootlace\Http\Response;
+namespace Bootlace\Response;
 
 interface ResponseContentInterface
 {
     /**
      * Clear the content.
      *
-     * @return Response
+     * @return ResponseManager
      */
-    public function clearContent(): Response;
+    public function clearContent(): ResponseManager;
 
     /**
      * Get the Response content.
@@ -22,23 +22,23 @@ interface ResponseContentInterface
      * Set the Response content.
      *
      * @param string $content
-     * @return Response
+     * @return ResponseManager
      */
-    public function setContent(string $content = ""): Response;
+    public function setContent(string $content = ""): ResponseManager;
 
     /**
      * Prepends the content.
      *
      * @param string $content The string to prepend
-     * @return Response
+     * @return ResponseManager
      */
-    public function prependContent(string $content): Response;
+    public function prependContent(string $content): ResponseManager;
 
     /**
      * Appends the content.
      *
      * @param string $content The string to append
-     * @return Response
+     * @return ResponseManager
      */
-    public function appendContent(string $content): Response;
+    public function appendContent(string $content): ResponseManager;
 }
