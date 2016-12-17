@@ -1,12 +1,12 @@
 <?php
 
-namespace Bootlace\Http\Request;
+namespace Bootlace\Request;
 
 use Bootlace\DataCollection\DataCollection;
-use Bootlace\Http\Response\Cookie\CookieDataCollection;
-use Bootlace\Http\Response\Header\HeaderDataCollection;
-use Bootlace\Http\Response\Header\ServerDataCollection;
-use Bootlace\Http\Request\Exception\MissingRequestMetaVariableException;
+use Bootlace\Response\Cookie\CookieDataCollection;
+use Bootlace\Response\Header\HeaderDataCollection;
+use Bootlace\Response\Header\ServerDataCollection;
+use Bootlace\Request\Exception\MissingRequestMetaVariableException;
 
 /**
  * Interface RequestManagerInterface

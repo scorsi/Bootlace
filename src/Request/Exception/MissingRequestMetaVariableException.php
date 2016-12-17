@@ -1,6 +1,6 @@
 <?php
 
-namespace Bootlace\Http\Request\Exception;
+namespace Bootlace\Request\Exception;
 
 use RuntimeException;
 use Bootlace\Exception\ExceptionInterface;
