@@ -8,6 +8,7 @@ use Bootlace\Route\Exception\InvalidCacheFileFormatException;
 use Bootlace\Route\Exception\InvalidRouteFileException;
 use Bootlace\Route\Exception\InvalidRouteFileFormatException;
 use Bootlace\Route\RouteParser\RouteParserInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class RouteManager.
@@ -141,7 +142,7 @@ class RouteManager
     protected function generateRouteCollector()
     {
         $routeCollector = $this->getRouteCollector();
-        $routeData = yaml_parse_file($this->_routeFile);
+        $routeData = Yaml::parse(file_get_contents($this->_routeFile));
         if ($routeData === false) {
             throw new InvalidRouteFileFormatException($this->_routeFile);
         }
