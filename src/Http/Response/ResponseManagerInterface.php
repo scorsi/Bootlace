@@ -2,34 +2,34 @@
 
 namespace Bootlace\Http\Response;
 
-use Bootlace\Exceptions\ResponseAlreadySentException;
+use Bootlace\Http\Response\Exception\ResponseAlreadySentException;
 
 /**
- * Interface ResponseInterface
+ * Interface ResponseManagerInterface
  */
-interface ResponseInterface
+interface ResponseManagerInterface
 {
     /**
      * Set the header for redirecting to new location.
      *
      * @param string $url
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    public function redirect(string $url): ResponseInterface;
+    public function redirect(string $url): ResponseManagerInterface;
 
     /**
      * Tells the browser not to cache the response.
      *
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    public function noCache(): ResponseInterface;
+    public function noCache(): ResponseManagerInterface;
 
     /**
      * Sends the response and lock it
      *
      * @param boolean $override Whether or not to override the check if the response has already been sent
      * @throws ResponseAlreadySentException If the response has already been sent
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    public function send($override = false): ResponseInterface;
+    public function send($override = false): ResponseManagerInterface;
 }

@@ -9,19 +9,19 @@ use Bootlace\Http\Response\Header\ServerDataCollection;
 use Bootlace\Http\Request\Exception\MissingRequestMetaVariableException;
 
 /**
- * Interface RequestInterface
+ * Interface RequestManagerInterface
  *
  * @package Bootlace\Http
  */
-interface RequestInterface
+interface RequestManagerInterface
 {
     /**
      * Create a new request object using the built-in "superglobals"
      *
      * @link http://php.net/manual/en/language.variables.superglobals.php
-     * @return RequestInterface
+     * @return RequestManagerInterface
      */
-    public function createFromGlobals(): RequestInterface;
+    public function createFromGlobals(): RequestManagerInterface;
 
     /**
      * Lazy initialize of paramsGet DataCollection.

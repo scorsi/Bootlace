@@ -11,11 +11,11 @@ use Bootlace\Http\Response\Exception\ResponseAlreadySentException;
 use Bootlace\Http\Response\Header\Exception\HeadersAlreadySentException;
 
 /**
- * Class Response
+ * Class ResponseManager
  *
  * @package Bootlace\Http
  */
-class Response implements ResponseInterface, ResponseContentInterface
+class ResponseManager implements ResponseManagerInterface, ResponseContentInterface
 {
     use ResponseContentTrait;
 
@@ -87,9 +87,9 @@ class Response implements ResponseInterface, ResponseContentInterface
     /**
      * Marks the response as sent.
      *
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    private function markAsSent(): ResponseInterface
+    private function markAsSent(): ResponseManagerInterface
     {
         $this->sent = true;
         return $this;
@@ -99,9 +99,9 @@ class Response implements ResponseInterface, ResponseContentInterface
      * Sets the header for redirecting to new location.
      *
      * @param string $url
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    public function redirect(string $url): ResponseInterface
+    public function redirect(string $url): ResponseManagerInterface
     {
         $this->getHeaderManager()->getHeadersDataCollection()->set('Location', $url);
         $this->getStatusManager()->setStatus(301); // Moved permanently
@@ -111,9 +111,9 @@ class Response implements ResponseInterface, ResponseContentInterface
     /**
      * Tells the browser not to cache the response.
      *
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    public function noCache(): ResponseInterface
+    public function noCache(): ResponseManagerInterface
     {
         $this->getHeaderManager()->getHeadersDataCollection()->set('Pragma', 'no-cache');
         $this->getHeaderManager()->getHeadersDataCollection()->set('Cache-Control', 'no-store, no-cache');
@@ -125,9 +125,9 @@ class Response implements ResponseInterface, ResponseContentInterface
      *
      * @param boolean $override Whether or not to override the check if headers have already been sent
      * @throws HeadersAlreadySentException
-     * @return Response
+     * @return ResponseManager
      */
-    public function sendHeaders(bool $override = false): Response
+    public function sendHeaders(bool $override = false): ResponseManager
     {
         if (headers_sent() && !$override) {
             throw new HeadersAlreadySentException('Headers were already been sent');
@@ -149,9 +149,9 @@ class Response implements ResponseInterface, ResponseContentInterface
      *
      * @param boolean $override Whether or not to override the check if the response has already been sent
      * @throws ResponseAlreadySentException If the response has already been sent
-     * @return ResponseInterface
+     * @return ResponseManagerInterface
      */
-    public function send($override = false): ResponseInterface
+    public function send($override = false): ResponseManagerInterface
     {
         if ($this->sent && !$override) {
             throw new ResponseAlreadySentException('Response has already been sent');
