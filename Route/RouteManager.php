@@ -6,9 +6,7 @@ use Bootlace\Route\DataGenerator\DataGeneratorInterface;
 use Bootlace\Route\Dispatcher\DispatcherInterface;
 use Bootlace\Route\Exception\InvalidCacheFileFormatException;
 use Bootlace\Route\Exception\InvalidRouteFileException;
-use Bootlace\Route\Exception\InvalidRouteFileFormatException;
 use Bootlace\Route\RouteParser\RouteParserInterface;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class RouteManager.
@@ -142,35 +140,10 @@ class RouteManager
     protected function generateRouteCollector()
     {
         $routeCollector = $this->getRouteCollector();
-        $routeData = Yaml::parse(file_get_contents($this->_routeFile));
-        if ($routeData === false) {
-            throw new InvalidRouteFileFormatException($this->_routeFile);
-        }
-        foreach ($routeData as $routeParam) {
-            if (empty($routeParam['controller'])) {
-                throw new \Exception('A controller is needed to create a route.');
-            }
-            $controller = array(
-                0 => 'App\\Controllers\\' . explode('::', $routeParam['controller'])[0],
-                1 => explode('::', $routeParam['controller'])[1]
-            );
-            $middleware = array();
-            if (!empty($routeParam['middlewares'])) {
-                if (is_array($routeParam['middlewares'])) {
-                    foreach ($routeParam['middlewares'] as $key => $value) {
-                        $middleware[$key] = array(
-                            0 => 'App\\Middlewares\\' . explode('::', $value)[0],
-                            1 => explode('::', $value)[1]
-                        );
-                    }
-                } else {
-                    $middleware[] = array(
-                        0 => 'App\\Middlewares\\' . explode('::', $routeParam['middlewares'])[0],
-                        1 => explode('::', $routeParam['middlewares'])[1]
-                    );
-                }
-            }
-            $routeCollector->addRoute($routeParam['method'], $routeParam['path'], $controller);
+        /** @noinspection PhpIncludeInspection */
+        $routeData = require "$this->_routeFile";
+        foreach ($routeData as $route) {
+            $routeCollector->addRoute($route[0], $route[1], $route[2]);
         }
         return $routeCollector->getData();
     }
@@ -204,7 +177,7 @@ class RouteManager
 
         if (filemtime($this->_cacheFile) > filemtime($this->_routeFile)) {
             /** @noinspection PhpIncludeInspection */
-            $dispatchData = require $this->_cacheFile;
+            $dispatchData = require "$this->_cacheFile";
             if (!is_array($dispatchData)) {
                 throw new InvalidCacheFileFormatException($this->_cacheFile);
             }
