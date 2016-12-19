@@ -37,11 +37,23 @@ class ResponseManager implements ResponseManagerInterface, ResponseContentInterf
     /* @var bool $sent Is the content already sent? */
     private $sent = false;
 
-    public function __construct(
-        HeaderDataCollection $headerDataCollection,
-        CookieDataCollection $cookieDataCollection)
+    /**
+     * Sets the HeaderDataCollection.
+     *
+     * @param HeaderDataCollection $headerDataCollection
+     */
+    public function setHeaderDataCollection(HeaderDataCollection $headerDataCollection)
     {
         $this->_headerDataCollection = $headerDataCollection;
+    }
+
+    /**
+     * Sets the CookieDataCollection.
+     *
+     * @param CookieDataCollection $cookieDataCollection
+     */
+    public function setCookieDataCollection(CookieDataCollection $cookieDataCollection)
+    {
         $this->_cookieDataCollection = $cookieDataCollection;
     }
 
