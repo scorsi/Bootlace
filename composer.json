@@ -20,7 +20,6 @@
   ],
   "require": {
     "php": ">=7.1.0",
-    "symfony/yaml": "3.*",
     "vlucas/phpdotenv": "2.*"
   },
   "require-dev": {
