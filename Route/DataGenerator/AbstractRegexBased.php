@@ -3,7 +3,7 @@
 namespace Bootlace\Route\DataGenerator;
 
 use Bootlace\Route\Exception\BadRouteException;
-use Bootlace\Route;
+use Bootlace\Route\Route;
 
 abstract class AbstractRegexBased implements DataGeneratorInterface
 {
