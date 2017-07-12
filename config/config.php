@@ -1,0 +1,3 @@
+<?php
+
+define('SECRET_KEY', 'c532c3f2b2574d1cf29ef3cdcd8912e7151b276cdd8d2752037302293321321f');

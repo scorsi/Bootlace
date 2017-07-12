@@ -22,11 +22,12 @@
     "php": ">=7.1.0"
   },
   "require-dev": {
-    "filp/whoops": "~2.1"
+    "filp/whoops": "~2.1",
+    "kint-php/kint": "^2.1"
   },
   "autoload": {
     "psr-4": {
-      "Bootlace\\": "/"
+      "Bootlace\\": "/library"
     }
   }
 }

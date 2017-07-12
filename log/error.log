@@ -1,0 +1,9 @@
+[12-Jul-2017 21:37:46 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(C:\xampp\htdocs\bootlace-framework\library\Kernel\Kernel.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\library\autoload.php:55
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\library\autoload.php(55): Whoops\Run->handleError(2, 'require_once(C:...', 'C:\\xampp\\htdocs...', 55, Array)
+#1 C:\xampp\htdocs\bootlace-framework\library\autoload.php(55): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\public\index.php(18): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\library\autoload.php on line 55
+[12-Jul-2017 21:37:46 Europe/Berlin] PHP Fatal error:  main(): Failed opening required 'Kernel/Kernel.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\library\autoload.php on line 55
+[12-Jul-2017 21:51:44 Europe/Berlin] PHP Fatal error:  Class 'Bootlace\Controller' not found in C:\xampp\htdocs\bootlace-framework\app\Test.php on line 7
