@@ -151,7 +151,7 @@ class Kernel
                     $classname = 'App\\' . $dispatchResult[1];
                     /* @var \Bootlace\Controller $class */
                     $class = new $classname($this->getRequestManager(), $this->getResponseManager(), $this->getRenderer());
-                    $html = $class->run();
+                    $html = $class->handle();
                 }
                 else
                     throw new ControllerNotFoundException($dispatchResult[1]);
