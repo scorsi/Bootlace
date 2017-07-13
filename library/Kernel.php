@@ -148,11 +148,13 @@ class Kernel
                 $autoloadfile = __DIR__ . '/../app/Autoload/' . $dispatchResult[1] . '.php';
                 if (file_exists($filename))
                 {
+                    ob_start();
                     if (file_exists($autoloadfile))
                     {
                         require_once $autoloadfile;
                     }
                     require_once $filename;
+                    ob_end_clean();
                     $classname = 'App\\Controller\\' . $dispatchResult[1];
                     /* @var \Bootlace\Controller $class */
                     $class = new $classname($this->getRequestManager(), $this->getResponseManager(), $this->getRenderer());
