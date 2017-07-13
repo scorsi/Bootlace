@@ -6,7 +6,7 @@ use Bootlace\Controller;
 
 class Test extends Controller
 {
-    public function run(): string
+    public function handle(): string
     {
         return $this->render('test');
     }

@@ -57,5 +57,8 @@ class Controller implements ControllerInterface
         return $this->_renderer;
     }
 
-    public function run(): string {}
+    public function handle(): string
+    {
+        return '';
+    }
 }

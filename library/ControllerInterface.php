@@ -4,5 +4,5 @@ namespace Bootlace;
 
 interface ControllerInterface
 {
-    public function run(): string;
+    public function handle(): string;
 }
