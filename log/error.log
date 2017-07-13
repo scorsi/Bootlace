@@ -7,3 +7,63 @@ Stack trace:
   thrown in C:\xampp\htdocs\bootlace-framework\library\autoload.php on line 55
 [12-Jul-2017 21:37:46 Europe/Berlin] PHP Fatal error:  main(): Failed opening required 'Kernel/Kernel.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\library\autoload.php on line 55
 [12-Jul-2017 21:51:44 Europe/Berlin] PHP Fatal error:  Class 'Bootlace\Controller' not found in C:\xampp\htdocs\bootlace-framework\app\Test.php on line 7
+[13-Jul-2017 09:52:45 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(../../library/Crypt/CryptManager.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php:3
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): Whoops\Run->handleError(2, 'require_once(.....', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(153): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(118): Bootlace\Kernel->dispatch()
+#4 C:\xampp\htdocs\bootlace-framework\public\index.php(23): Bootlace\Kernel->execute()
+#5 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:52:45 Europe/Berlin] PHP Fatal error:  Bootlace\Kernel::main(): Failed opening required '../../library/Crypt/CryptManager.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:05 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(../../library/Crypt/CryptManager.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php:3
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): Whoops\Run->handleError(2, 'require_once(.....', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(153): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(118): Bootlace\Kernel->dispatch()
+#4 C:\xampp\htdocs\bootlace-framework\public\index.php(23): Bootlace\Kernel->execute()
+#5 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:05 Europe/Berlin] PHP Fatal error:  Bootlace\Kernel::main(): Failed opening required '../../library/Crypt/CryptManager.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:32 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(C:\xampp\htdocs\bootlace-framework\app\Autoload../library/Crypt/CryptManager.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php:3
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): Whoops\Run->handleError(2, 'require_once(C:...', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(153): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(118): Bootlace\Kernel->dispatch()
+#4 C:\xampp\htdocs\bootlace-framework\public\index.php(23): Bootlace\Kernel->execute()
+#5 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:32 Europe/Berlin] PHP Fatal error:  Bootlace\Kernel::main(): Failed opening required 'C:\xampp\htdocs\bootlace-framework\app\Autoload../library/Crypt/CryptManager.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:36 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(C:\xampp\htdocs\bootlace-framework\app\Autoload../../library/Crypt/CryptManager.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php:3
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): Whoops\Run->handleError(2, 'require_once(C:...', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(153): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(118): Bootlace\Kernel->dispatch()
+#4 C:\xampp\htdocs\bootlace-framework\public\index.php(23): Bootlace\Kernel->execute()
+#5 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:36 Europe/Berlin] PHP Fatal error:  Bootlace\Kernel::main(): Failed opening required 'C:\xampp\htdocs\bootlace-framework\app\Autoload../../library/Crypt/CryptManager.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:37 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(C:\xampp\htdocs\bootlace-framework\app\Autoload../../library/Crypt/CryptManager.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php:3
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): Whoops\Run->handleError(2, 'require_once(C:...', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(153): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(118): Bootlace\Kernel->dispatch()
+#4 C:\xampp\htdocs\bootlace-framework\public\index.php(23): Bootlace\Kernel->execute()
+#5 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:37 Europe/Berlin] PHP Fatal error:  Bootlace\Kernel::main(): Failed opening required 'C:\xampp\htdocs\bootlace-framework\app\Autoload../../library/Crypt/CryptManager.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:39 Europe/Berlin] PHP Warning:  Uncaught Whoops\Exception\ErrorException: require_once(C:\xampp\htdocs\bootlace-framework\app\Autoload../../library/Crypt/CryptManager.php): failed to open stream: No such file or directory in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php:3
+Stack trace:
+#0 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): Whoops\Run->handleError(2, 'require_once(C:...', 'C:\\xampp\\htdocs...', 3, Array)
+#1 C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php(3): require_once()
+#2 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(153): require_once('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\bootlace-framework\library\Kernel.php(118): Bootlace\Kernel->dispatch()
+#4 C:\xampp\htdocs\bootlace-framework\public\index.php(23): Bootlace\Kernel->execute()
+#5 {main}
+  thrown in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3
+[13-Jul-2017 09:53:39 Europe/Berlin] PHP Fatal error:  Bootlace\Kernel::main(): Failed opening required 'C:\xampp\htdocs\bootlace-framework\app\Autoload../../library/Crypt/CryptManager.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\bootlace-framework\app\Autoload\Test.php on line 3

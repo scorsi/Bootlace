@@ -144,11 +144,16 @@ class Kernel
                 $this->setError();
                 break;
             case DispatcherInterface::FOUND:
-                $filename = __DIR__ . '/../app/' . $dispatchResult[1] . '.php';
+                $filename = __DIR__ . '/../app/Controller/' . $dispatchResult[1] . '.php';
+                $autoloadfile = __DIR__ . '/../app/Autoload/' . $dispatchResult[1] . '.php';
                 if (file_exists($filename))
                 {
+                    if (file_exists($autoloadfile))
+                    {
+                        require_once $autoloadfile;
+                    }
                     require_once $filename;
-                    $classname = 'App\\' . $dispatchResult[1];
+                    $classname = 'App\\Controller\\' . $dispatchResult[1];
                     /* @var \Bootlace\Controller $class */
                     $class = new $classname($this->getRequestManager(), $this->getResponseManager(), $this->getRenderer());
                     $html = $class->handle();
