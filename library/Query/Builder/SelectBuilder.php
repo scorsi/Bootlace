@@ -170,12 +170,11 @@ class SelectBuilder
         $tableName = $this->getTableBuilder()->getTable();
 
         $query = "SELECT " . $this->renderSelect() . " FROM $tableName" . $this->renderWhere();
-        echo $query;
-
         $sth = $dbh->prepare($query);
 
         if ($this->whereClauseBuilder !== null)
             $this->whereClauseBuilder->bind($sth);
+
         $sth->execute();
         $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
         return $res;
