@@ -2,6 +2,7 @@
 
 namespace Bootlace;
 
+use Bootlace\Query\QueryManager;
 use Bootlace\Renderer\Renderer;
 use Bootlace\Request\RequestManager;
 use Bootlace\Response\ResponseManager;
@@ -145,20 +146,20 @@ class Kernel
                 break;
             case DispatcherInterface::FOUND:
                 $filename = __DIR__ . '/../app/Controller/' . $dispatchResult[1] . '.php';
-                $autoloadfile = __DIR__ . '/../app/Autoload/' . $dispatchResult[1] . '.php';
                 if (file_exists($filename))
                 {
+                    $autoloadfile = __DIR__ . '/../app/Autoload/' . $dispatchResult[1] . '.php';
                     ob_start();
                     if (file_exists($autoloadfile))
                     {
                         require_once $autoloadfile;
                     }
                     require_once $filename;
-                    ob_end_clean();
                     $classname = 'App\\Controller\\' . $dispatchResult[1];
                     /* @var \Bootlace\Controller $class */
-                    $class = new $classname($this->getRequestManager(), $this->getResponseManager(), $this->getRenderer());
+                    $class = new $classname($this->getRequestManager(), $this->getResponseManager(), $this->getRenderer(), new QueryManager(DB_CONNECTOR));
                     $html = $class->handle();
+                    ob_end_clean();
                 }
                 else
                     throw new ControllerNotFoundException($dispatchResult[1]);

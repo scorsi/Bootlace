@@ -2,26 +2,47 @@
 
 namespace Bootlace;
 
+use Bootlace\Query\Builder\QueryBuilder;
+use Bootlace\Query\QueryManager;
 use Bootlace\Renderer\Renderer;
 use Bootlace\Response\ResponseManager;
 use Bootlace\Request\RequestManager;
 
 class Controller implements ControllerInterface
 {
-    /* @var RequestManager $_requestManager */
-    private $_requestManager;
+    /* @var RequestManager $requestManager */
+    private $requestManager;
 
-    /* @var ResponseManager $_responseManager */
-    private $_responseManager;
+    /* @var ResponseManager $responseManager */
+    private $responseManager;
 
-    /* @var Renderer $_renderer */
-    private $_renderer;
+    /* @var Renderer $renderer */
+    private $renderer;
 
-    public function __construct(RequestManager $requestManager, ResponseManager $responseManager, Renderer $renderer)
+    /* @var QueryManager $queryManager */
+    private $queryManager;
+
+    /**
+     * Controller constructor.
+     * @param RequestManager $requestManager
+     * @param ResponseManager $responseManager
+     * @param Renderer $renderer
+     * @param QueryManager $queryManager
+     */
+    public function __construct(RequestManager $requestManager, ResponseManager $responseManager, Renderer $renderer, QueryManager $queryManager)
     {
-        $this->_requestManager = $requestManager;
-        $this->_responseManager = $responseManager;
-        $this->_renderer = $renderer;
+        $this->requestManager = $requestManager;
+        $this->responseManager = $responseManager;
+        $this->renderer = $renderer;
+        $this->queryManager = $queryManager;
+    }
+
+    /**
+     * @return string
+     */
+    public function handle(): string
+    {
+        return '';
     }
 
     /**
@@ -33,12 +54,25 @@ class Controller implements ControllerInterface
         return $this->getRenderer()->draw($templateName, true);
     }
 
+    protected function assign($variable, $value = null)
+    {
+        return $this->getRenderer()->assign($variable, $value);
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    protected function query()
+    {
+        return $this->queryManager->query();
+    }
+
     /**
      * @return ResponseManager
      */
     public function getResponseManager(): ResponseManager
     {
-        return $this->_responseManager;
+        return $this->responseManager;
     }
 
     /**
@@ -46,7 +80,7 @@ class Controller implements ControllerInterface
      */
     public function getRequestManager(): RequestManager
     {
-        return $this->_requestManager;
+        return $this->requestManager;
     }
 
     /**
@@ -54,11 +88,14 @@ class Controller implements ControllerInterface
      */
     public function getRenderer(): Renderer
     {
-        return $this->_renderer;
+        return $this->renderer;
     }
 
-    public function handle(): string
+    /**
+     * @return QueryManager
+     */
+    public function getQueryManager(): QueryManager
     {
-        return '';
+        return $this->queryManager;
     }
 }
