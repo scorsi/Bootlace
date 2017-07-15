@@ -40,6 +40,7 @@ class QueryManager
             $classname = 'Bootlace\\Query\\Connector\\' . $connector . 'Connector';
             $class = new $classname();
             $this->connector = $class;
+            $this->connector->setDbname(DB_NAME)->setPass(DB_PASS)->setUser(DB_USER)->setHost(DB_HOST)->setPort(DB_PORT);
             return $this->connector;
         }
         throw new InvalidDatabaseConnectorException($connector);
