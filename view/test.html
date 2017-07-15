@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
 </head>
 <body>
     <h1>Yo</h1>
+    <ul>
+        {loop="$result"}
+        <li>{$value.id}: {$value.text}</li>
+        {/loop}
+    </ul>
 </body>
 </html>
